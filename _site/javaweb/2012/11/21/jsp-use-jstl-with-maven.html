@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="author" content="Liu Dong" />
+		<meta property="wb:webmaster" content="95df5d741703d83b" />
+		<!--[if lt IE 9]>
+	      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	    <![endif]-->
+		<link rel="stylesheet" href="/css/base.css" type="text/css" />
+		<link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+		<title>JSP页面中使用jstl 标签</title>
+	</head>
+	<body>
+		<header role="main">
+			<div>
+				<a href="/"><span class="threeD">Wanghlwin</span></a>
+			</div>
+		</header>
+		<div id="content" role="main">
+			<section role="main">
+<div class="page">
+	<header>
+		<div class="title">JSP页面中使用jstl 标签</div>
+		<div class="info">
+			分类：javaweb  标签：jsp,jstl
+		</div>
+		<div class="description">介绍jsp页面中使用jstl标签。maven引入jstl</div>
+	</header>
+	<div class="content"><h1>时间长了不常用的东西老是忘记，这次小记一下，以备下次查找。</h1>
+
+<blockquote><blockquote><h2>如果是maven项目，则先在 pom.xml中添入一下配置：</h2>
+
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;jstl&lt;/groupId&gt;
+    &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+    &lt;version&gt;1.2&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre></blockquote></blockquote>
+
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;taglibs&lt;/groupId&gt;
+    &lt;artifactId&gt;standard&lt;/artifactId&gt;
+    &lt;version&gt;1.1.2&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h2>如果是一般的web项目，则导入相应的jar包即可。之后再jsp页面头导入标签的配置：</h2>
+
+<pre><code>核心标签库：&lt;%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %&gt;
+格式化标签库：&lt;%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %&gt; 
+函数标签库：&lt;%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%&gt;
+</code></pre>
+
+<h2>判断集合的长度：</h2>
+
+<pre><code>&lt;c:if test="${fn:length(blackAppList) &gt; 0 }"&gt;
+    &lt;c:forEach items="${blackAppList}" var="app"&gt;
+        &lt;li&gt;&lt;strong&gt;应用程序名称&lt;/strong&gt;${app.appName }&lt;/li&gt;
+    &lt;/c:forEach&gt;
+&lt;/c:if&gt;
+</code></pre>
+
+<h2>常用的遍历集合和判断标签的使用：</h2>
+
+<pre><code>&lt;c:forEach items="${pageInfo.result }" var="result" varStatus="st"&gt;
+    &lt;tr &lt;c:if test='${st.index % 2 != 0 }'&gt; class="sec_tr" &lt;/c:if&gt;&gt; 
+        &lt;td scope="col"&gt;
+            &lt;fmt:formatDate value="${result.requestTime}" pattern="yyyy年MM月dd日HH点mm分ss秒" /&gt;
+        &lt;/td&gt;
+        &lt;td scope="col"&gt;
+            &lt;c:if test="${result.platform == 1 }"&gt;
+                IOS
+            &lt;/c:if&gt;
+            &lt;c:if test="${result.platform == 2 }"&gt;
+                Android
+            &lt;/c:if&gt;
+        &lt;/td&gt;
+        &lt;td scope="col"&gt;${result.department }&lt;/td&gt;
+        &lt;td scope="col"&gt;${result.username }&lt;/td&gt;
+        &lt;td scope="col"&gt;${result.email }&lt;/td&gt;
+        &lt;td scope="col"&gt;${result.policyId}&lt;/td&gt;
+        &lt;td scope="col"&gt;
+            &lt;c:if test="${result.requestStatus == 0}"&gt;
+                Pending
+            &lt;/c:if&gt;
+            &lt;c:if test="${result.requestStatus == 1}"&gt;
+                Completed
+            &lt;/c:if&gt;
+        &lt;/td&gt;
+        &lt;td scope="col"&gt;${result.registionTime }&lt;/td&gt;
+        &lt;td scope="col"&gt;${result.deviceId }&lt;/td&gt;
+        &lt;td scope="col"&gt;${result.requestComment}&lt;/td&gt;
+        &lt;td scope="col"&gt;${result.passcode }&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/c:forEach&gt;
+</code></pre>
+</div>
+	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'webexpressor'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        
+
+</div>
+</section>
+<aside role="main">
+	<div id="table-content"></div>
+</aside>
+
+
+
+
+		</div>
+	</body>
+</html>
