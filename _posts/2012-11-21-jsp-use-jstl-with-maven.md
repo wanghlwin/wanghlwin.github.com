@@ -10,6 +10,7 @@ description: 介绍jsp页面中使用jstl标签。maven引入jstl
 
 >>
 ## 如果是maven项目，则先在 pom.xml中添入一下配置：
+{% highlight javascript %}
 	<dependency>
 		<groupId>jstl</groupId>
 		<artifactId>jstl</artifactId>
@@ -21,6 +22,7 @@ description: 介绍jsp页面中使用jstl标签。maven引入jstl
 		<artifactId>standard</artifactId>
 		<version>1.1.2</version>
 	</dependency>
+{% endhighlight%}
 ## 如果是一般的web项目，则导入相应的jar包即可。之后再jsp页面头导入标签的配置：
 	核心标签库：<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 	格式化标签库：<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
@@ -28,14 +30,16 @@ description: 介绍jsp页面中使用jstl标签。maven引入jstl
 
  
 ##	判断集合的长度：
+{% highlight javascript %}
 	<c:if test="${fn:length(blackAppList) > 0 }">
 		<c:forEach items="${blackAppList}" var="app">
 			<li><strong>应用程序名称</strong>${app.appName }</li>
 		</c:forEach>
 	</c:if>
- 
-##	常用的遍历集合和判断标签的使用：
+{% endhighlight%}
 
+##	常用的遍历集合和判断标签的使用：
+{% highlight javascript %}
 	<c:forEach items="${pageInfo.result }" var="result" varStatus="st">
   		<tr <c:if test='${st.index % 2 != 0 }'> class="sec_tr" </c:if>>	
 			<td scope="col">
@@ -67,3 +71,4 @@ description: 介绍jsp页面中使用jstl标签。maven引入jstl
 		    <td scope="col">${result.passcode }</td>
   		</tr>
 	</c:forEach>
+{% endhighlight%}

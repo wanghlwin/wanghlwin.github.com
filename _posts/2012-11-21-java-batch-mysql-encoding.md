@@ -12,7 +12,7 @@ description:
 
 {% highlight javascript %}
 public void executeSql(String sqlFilePath) throws IOException{ 
-String command = &quot;cmd  /c  mysql -urichmobi -prichmobi heima_2012_3 &lt; d:\\sql_Output.sql&quot;; 
+String command = "cmd  /c  mysql -urichmobi -prichmobi heima_2012_3 < d:\\sql_Output.sql"; 
 Runtime.getRuntime().exec(command); 
 } 
 {% endhighlight%}
