@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "使用apache commons email 发送带附件邮件（可中文） "
+title: "使用apachecommons email 发送带附件邮件（可中文） "
 category:java
 tags: [javamail,commons,email,邮件附件,邮件为中文]
 description: 
