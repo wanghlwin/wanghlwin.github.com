@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "HttpClient4 的使用（post上传文件）struts action 接收"
-category: 
+category: java
 tags: [httpclient4.1,上传文件,MultipartEntity,FileBody,httpclient4.1上传文件]
 description: 
 ---
