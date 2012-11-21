@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "JSP页面中使用jstl 标签"
-category: javaweb
+category: java
 tags: [jsp,jstl]
 description: 介绍jsp页面中使用jstl标签。maven引入jstl
 ---

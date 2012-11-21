@@ -3,7 +3,7 @@ layout: page
 title: "使用apachecommons email 发送带附件邮件（可中文） "
 category:java
 tags: [javamail,commons,email,邮件附件,邮件为中文]
-description: 
+description: 使用apachecommons email 发送带附件邮件
 ---
 
 # Java Mail 实在难用，伤不起，发现个简单方便的邮件组件，在Java Mail的基础上又包了一层，代码如下：附件可以是中文（有问题和意见的欢迎拍砖）
